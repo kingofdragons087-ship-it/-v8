@@ -1,4 +1,4 @@
-Entername: Build 👑مترجم اسطوري اصدار 9👑
+name: Build 👑مترجم اسطوري اصدار 9👑
 
 on:
   push:
@@ -10,22 +10,17 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: تحميل الملفات
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: تشغيل Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: تثبيت الحزم
-        run: npm install
+      - run: npm install
 
-      - name: بناء EXE
-        run: npx electron-builder --win --publish never
+      - run: npx electron-builder --win --publish never
 
-      - name: رفع البرنامج
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: 👑مترجم-اسطوري-اصدار-9👑
           path: dist/
